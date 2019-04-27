@@ -1,10 +1,8 @@
-//META{"name":"GhostMessage","website":"https://github.com/KyzaGitHub/GhostMessage","source":"https://raw.githubusercontent.com/KyzaGitHub/GhostMessage/master/GhostMessage.plugin.js"}*//
+//META{"name":"GhostMessage","website":"https://github.com/KyzaGitHub/Khub","source":"https://raw.githubusercontent.com/KyzaGitHub/Khub/master/v1%20Plugins/GhostMessage/GhostMessage.plugin.js"}*//
 
 var GhostMessage = function() {};
 
 var updateInterval;
-var pluginEnabled;
-
 var getMessagePatch;
 
 var enabled = false;
@@ -22,18 +20,8 @@ GhostMessage.prototype.start = function() {
     document.head.appendChild(libraryScript);
   }
 
-  libraryScript = document.querySelector('head script[src="https://mwittrien.github.io/BetterDiscordAddons/Plugins/BDFDB.js"]');
-  if (!libraryScript || performance.now() - libraryScript.getAttribute("date") > 600000) {
-    if (libraryScript) libraryScript.remove();
-    libraryScript = document.createElement("script");
-    libraryScript.setAttribute("type", "text/javascript");
-    libraryScript.setAttribute("src", "https://mwittrien.github.io/BetterDiscordAddons/Plugins/BDFDB.js");
-    libraryScript.setAttribute("date", performance.now());
-    document.head.appendChild(libraryScript);
-  }
-
   updateInterval = setInterval(() => {
-    ZLibrary.PluginUpdater.checkForUpdate("GhostMessage", this.getVersion(), "https://raw.githubusercontent.com/KyzaGitHub/GhostMessage/master/GhostMessage.plugin.js");
+    ZLibrary.PluginUpdater.checkForUpdate("GhostMessage", this.getVersion(), "https://raw.githubusercontent.com/KyzaGitHub/Khub/master/v1%20Plugins/GhostMessage/GhostMessage.plugin.js");
   }, 5000);
 
   addButton();
@@ -48,8 +36,6 @@ GhostMessage.prototype.start = function() {
       }
     }
   });
-
-  pluginEnabled = true;
 };
 
 GhostMessage.prototype.load = function() {
